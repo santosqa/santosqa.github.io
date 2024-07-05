@@ -26,6 +26,8 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  background-size: cover;
+  background-attachment: fixed; 
   height: 100vh;
 }
 
