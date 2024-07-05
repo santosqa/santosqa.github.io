@@ -1,0 +1,15 @@
+# Arquivos de build
+node_modules/
+dist/
+out/
+*.log
+
+# Arquivos de configuração
+.env
+
+# Arquivo de anotações
+HELP.md
+
+# IDEs
+.idea/
+.vscode/
