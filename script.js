@@ -1,24 +1,38 @@
+'use strict';
+
 function toggleMode() {
   const html = document.documentElement;
-  document.documentElement.classList.toggle('light');
+  html.classList.toggle('light');
+  
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   const whatsappShareButton = document.getElementById('whatsapp-share');
-  whatsappShareButton.addEventListener('click', handleWhatsappShareClick);
+  whatsappShareButton.addEventListener('click', function(event) {
+    handleWhatsappShareClick(event);
+  });
 
-  document.getElementById('share-button').addEventListener('click', handleShareButtonClick);
+  document.getElementById('share-button').addEventListener('click', function(event) {
+    handleShareButtonClick(event);
+  });
 
-  document.querySelector('.close-button').addEventListener('click', closeShareModal);
-  window.addEventListener('click', handleWindowClick);
+  document.querySelector('.close-button').addEventListener('click', function(event) {
+    closeShareModal();
+  });
+
+  window.addEventListener('click', function(event) {
+    handleWindowClick(event);
+  });
 
   const shareLinks = document.querySelectorAll('#fallback-share-options a');
-  shareLinks.forEach(link => {
-    link.addEventListener('click', closeShareModal);
+  shareLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      closeShareModal();
+    });
   });
 });
 
-function handleWhatsappShareClick(  ) {
+function handleWhatsappShareClick(event) {
   event.preventDefault();
   const currentUrl = encodeURIComponent(window.location.href);
   const shareText = encodeURIComponent('Captei uma URL de potencial épico no vasto éter digital e imediatamente associei à sua persona. 🌐 Nela há hyperlinks que, segundo os padrões do universo cibernético, podem ser muito úteis. Recomendo uma inspeção, pois a jornada promete recompensas! 🚀');
@@ -64,7 +78,7 @@ function shareViaFallbackMethods(shareData) {
   document.getElementById('share-modal').style.display = 'block';
 }
 
-  function handleShareSuccess() {
+function handleShareSuccess() {
   console.log('Página compartilhada com sucesso!');
 }
 
@@ -77,8 +91,7 @@ function closeShareModal() {
 }
 
 function handleWindowClick(event) {
-  if (event.target == document.getElementById('share-modal')) {
+  if (event.target === document.getElementById('share-modal')) {
     closeShareModal();
   }
 }
-

@@ -64,9 +64,12 @@ body * {
   position: relative;
   width: 64px;
   margin: 0 auto;
+
 }
 
 #switch button{
+  cursor: pointer;
+
   width: 32px;
   height: 32px;
   background: var(--switch-bg) no-repeat center;
@@ -80,6 +83,7 @@ body * {
   transform: translateY(-50%);
 
   animation: slide-dark .6s;
+
 }
 
 #switch span {
