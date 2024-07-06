@@ -6,8 +6,7 @@ node_modules/
 dist/
 out/
 *.log
-.github/git 
-
+.github/
 
 # Arquivos de configuração
 .env
