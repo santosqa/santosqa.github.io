@@ -1,301 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="dark">
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Links Santos QA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="
-      default-src 'self';
-      script-src 'self' https://unpkg.com 'unsafe-inline';
-      style-src 'self' https://fonts.googleapis.com ;
-      font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' data:;
-      connect-src 'self' https://unpkg.com;
-    "
-    />
+<body>
+  <main role="main">
+    <h1 class="visually-hidden">Links Santos QA</h1>
+    <div id="container">
+      <div id="profile">
+        <img
+          src="./assets/avatar.png"
+          alt="Foto de Ricardo Santos QA, analista de testes incansável na caça aos Bugs! Está usando óculos e sorrindo para os bugs que encontrar com sua barba de testador desleixada, ele veste uma camiseta cinza e está pronto para caçar falhas no universo digital. Tudo isso com um fundo preto dramático nesta foto, claro!"
+        />
+        <p>@santosqa_</p>
+      </div>
 
-    <title>Links Santos QA</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+      <div
+        id="switch"
+        onclick="toggleMode()"
+        aria-label="Ícone para alternar o tema: lua com estrelas quando o tema é escuro e sol quando é claro"
+      >
+        <button role="button" aria-label="Alternar tema"></button>
+        <span></span>
+      </div>
 
-  <body>
-    <main
-      role="main"
-      aria-label="Você está na página principal do site: Links Santos QA"
-    >
-      <div id="container">
-        <div
-          id="profile"
-          aria-label="Esta é a foto do perfil de Ricardo Santos QA, abaixo você encontrará os links de redes sociais e sites importantes"
+      <div id="social-links">
+        <a
+          href="#"
+          id="share-button"
+          aria-label="Opção para compartilhar esta página"
         >
-          <img
-            src="./assets/avatar.png"
-            alt="Foto de Ricardo Santos QA, analista de testes incansável na caça aos Bugs! Está usando óculos e sorrindo para os bugs que encontrar com sua barba de testador desleixada, ele veste uma camiseta cinza e está pronto para caçar falhas no universo digital. Tudo isso com um fundo preto dramático nesta foto, claro!"
-          />
-          <p>@santosqa_</p>
-        </div>
+          <ion-icon name="share-social"></ion-icon>
+        </a>
 
-        <div
-          id="switch"
-          onclick="toggleMode()"
-          aria-label="Ícone para alternar o tema: lua com estrelas quando o tema é escuro e sol quando é claro"
+        <a
+          href="https://www.santosqa.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Site Santos QA"
         >
-          <button></button>
-          <span></span>
-        </div>
+          <ion-icon name="logo-wordpress"></ion-icon>
+        </a>
+        <a
+          href="https://github.com/santosqa"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/santosqa"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Linkedin"
+        >
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a
+          href="https://www.instagram.com/santosqa_"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a
+          id="whatsapp-share"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Compartilhar via Whatsapp"
+        >
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
 
-        <div id="social-links">
+        <a
+          href="https://www.apartamentovistamar.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Site Apartamento Vista mar"
+        >
+          <ion-icon name="globe-outline"></ion-icon>
+        </a>
+      </div>
+
+      <!-- Modal para opções de compartilhamento -->
+      <div id="share-modal" class="modal" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+          <button class="close-button" role="button" aria-label="Fechar modal">Fechar</button>
+          <h2>Selecione o aplicativo para compartilhar</h2>
+          <div id="fallback-share-options">
+            <a
+              href="#"
+              id="linkedin-share"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar no Linkedin"
+            >
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a
+              id="whatsapp-share2"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar via Whatsapp"
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+            <a
+              href="#"
+              id="twitter-share"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar no X"
+            >
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a
+              href="#"
+              id="facebook-share"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar no Facebook"
+            >
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a
+              href="#"
+              id="email-share"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar por e-mail"
+            >
+              <ion-icon name="mail"></ion-icon>
+            </a>
+            <a
+              href="#"
+              id="telegram-share"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar no Telegram"
+            >
+              <ion-icon name="paper-plane"></ion-icon>
+            </a>
+            <a
+              href="#"
+              id="instagram-share"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compartilhar no Instagram"
+            >
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- lista de links -->
+      <ul id="links-list">
+        <li>
           <a
-            href="#"
-            id="share-button"
-            aria-label="Opção para compartilhar esta página"
+            href="http://bit.ly/catalinefullstack"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="conhecer o Bootcamp Full Stack JavaScript"
           >
-            <ion-icon name="share-social"></ion-icon>
+            <img
+              src="./assets/icone-cataline.png"
+              alt="Ícone para conhecer o Bootcamp Full Stack JavaScript"
+            />
+            <span>Bootcamp Full Stack JavaScript</span>
           </a>
+        </li>
+        <li>
+          <a
+            href="https://go.hotmart.com/P93519492T?dp=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="conhecer o treinamento e conteúdo do Programa QA Completo da Bee Lab Academy"
+          >
+            <img
+              src="./assets/icone-bee-lab-academy.png"
+              alt="Ícone para conhecer o conteúdo do Programa QA Completo"
+            />
+            <span>Programa QA Completo</span>
+          </a>
+        </li>
 
+        <li>
+          <a
+            href="https://about.me/santosqa/getstarted"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="conhecer mais sobre o Santos QA"
+          >
+            <img
+              src="./assets/santos-qa.png"
+              alt="Ícone do Site conheça o Santos QA"
+            />
+            <span>Conheça o Santos QA</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.santosqa.com/posts/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="explorar e aprender com os artigos do Site Santos QA"
+          >
+            <img
+              src="./assets/icone-santos-qa.png"
+              alt="Ícone Explore artigos do Site Santos QA"
+            />
+            <span>Explore artigos e dicas</span>
+          </a>
+        </li>
+        <li>
           <a
             href="https://www.santosqa.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Site Santos QA"
+            aria-label="acessar e conhecer dicas de cursos, livros, post no mundo de tecnologia do site Site Santos QA"
           >
-            <ion-icon name="logo-wordpress" aria-hidden="true"></ion-icon>
+            <img
+              src="./assets/icone-santos-qa.png"
+              alt="Ícone do Site Santos QA"
+            />
+            <span>Site SantosQA.com </span>
           </a>
-          <a
-            href="https://github.com/santosqa"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/santosqa"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Linkedin"
-          >
-            <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
-          </a>
-          <a
-            href="https://www.instagram.com/santosqa_"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>
-          </a>
-          <a
-            id="whatsapp-share"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Compartilhar via Whatsapp"
-          >
-            <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>
-          </a>
-
+        </li>
+        <li>
           <a
             href="https://www.apartamentovistamar.com/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Site Apartamento Vista mar"
+            aria-label="conhecer apartamentos incríveis em Praia Grande listados no site Apartamento Vista Mar"
           >
-            <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
+            <img
+              src="./assets/icone-ap-vista-mar.png"
+              alt="Ícone do site Apartamento Vista Mar"
+            />
+            <span>Apartamento Vista Mar</span>
           </a>
-        </div>
+        </li>
+      </ul>
+    </div>
+  </main>
 
-        <!-- Modal para opções de compartilhamento -->
-        <div id="share-modal" class="modal" aria-hidden="true">
-          <div class="modal-content">
-            <span class="close-button" role="button" aria-label="Fechar modal"
-              >Fechar</span
-            >
-            <h2>Selecione o aplicativo para compartilhar</h2>
-            <div id="fallback-share-options">
-              <a
-                href="#"
-                id="linkedin-share"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-              <a
-                id="whatsapp-share2"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Compartilhar via Whatsapp"
-              >
-                <ion-icon name="logo-whatsapp"></ion-icon>
-              </a>
-              <a
-                href="#"
-                id="twitter-share"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-              <a
-                href="#"
-                id="facebook-share"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-              <a
-                href="#"
-                id="email-share"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="mail"></ion-icon>
-              </a>
-              <a
-                href="#"
-                id="telegram-share"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="paper-plane"></ion-icon>
-              </a>
-              <a
-                href="#"
-                id="instagram-share"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </div>
-          </div>
-        </div>
+  <footer>
+    <p>
+      Feito com ❤ por
+      <a
+        href="https://santosqa.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="site Santos QA"
+      >
+        @santosqa_
+      </a>
+    </p>
+  </footer>
 
-        <ul id="links-list">
-          <li>
-            <a
-              href="http://bit.ly/catalinefullstack"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="conhecer o Bootcamp Full Stack JavaScript"
-            >
-              <img
-                src="./assets/icone-cataline.png"
-                alt="Ícone para conhecer o Bootcamp Full Stack JavaScript"
-              />
-              <span>Bootcamp Full Stack JavaScript</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://go.hotmart.com/P93519492T?dp=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="conhecer o treinamento e conteúdo do Programa QA Completo da Bee Lab Academy"
-            >
-              <img
-                src="./assets/icone-bee-lab-academy.png"
-                alt="Ícone para conhecer o conteúdo do Programa QA Completo"
-              />
-              <span>Programa QA Completo</span>
-            </a>
-          </li>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script src="script.js"></script>
 
-          <li>
-            <a
-              href="https://about.me/santosqa/getstarted"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="conhecer mais sobre o Santos QA"
-            >
-              <img
-                src="./assets/santos-qa.png"
-                alt="Ícone do Site conheça o Santos QA"
-              />
-              <span>Conheça o Santos QA</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.santosqa.com/posts/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="explorar e aprender com os artigos do Site Santos QA"
-            >
-              <img
-                src="./assets/icone-santos-qa.png"
-                alt="Ícone Explore artigos do Site Santos QA"
-              />
-              <span>Explore artigos e dicas</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.santosqa.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="acessar e conhecer dicas de cursos, livros, post no mundo de tecnologia do site Site Santos QA"
-            >
-              <img
-                src="./assets/icone-santos-qa.png"
-                alt="Ícone do Site Santos QA"
-              />
-              <span>Site SantosQA.com </span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.apartamentovistamar.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="conhecer apartamentos incríveis em Praia Grande listados no site Apartamento Vista Mar"
-            >
-              <img
-                src="./assets/icone-ap-vista-mar.png"
-                alt="Ícone do site Apartamento Vista Mar"
-              />
-              <span>Apartamento Vista Mar</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </main>
-
-    <footer>
-      <p>
-        Feito com ❤ por
-        <a
-          href="https://santosqa.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="site Santos QA"
-        >
-          @santosqa_
-        </a>
-      </p>
-    </footer>
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="script.js"></script>
-  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log(
+        " 🚀 🚀 🚀 🚀  🚀 🚀 🚀 🚀  🚀 🚀 🚀 🚀  🚀 🚀 🚀 🚀 "
+      );
+    });
+  </script>
+</body>
 </html>
-

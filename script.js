@@ -3,7 +3,6 @@
 function toggleMode() {
   const html = document.documentElement;
   html.classList.toggle('light');
-  
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -74,8 +73,11 @@ function shareViaFallbackMethods(shareData) {
   document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
   document.getElementById('email-share').href = `mailto:?subject=${shareTitle}&body=${shareText}%0A${shareUrl}%0A`;
   document.getElementById('telegram-share').href = `https://t.me/share/url?url=${shareUrl}%0A&text=${shareText}`;
-  document.getElementById('instagram-share').href = `https://www.instagram.com/santosqa_`;
-  document.getElementById('share-modal').style.display = 'block';
+  
+  const modal = document.getElementById('share-modal');
+  modal.style.display = 'block';
+  modal.setAttribute('aria-hidden', 'false');
+  document.getElementById('main-content').setAttribute('aria-hidden', 'true');
 }
 
 function handleShareSuccess() {
@@ -87,7 +89,10 @@ function handleShareError(error) {
 }
 
 function closeShareModal() {
-  document.getElementById('share-modal').style.display = 'none';
+  const modal = document.getElementById('share-modal');
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
+  document.getElementById('main-content').setAttribute('aria-hidden', 'false');
 }
 
 function handleWindowClick(event) {
@@ -95,3 +100,10 @@ function handleWindowClick(event) {
     closeShareModal();
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  console.log(
+    "%c👀 Oi! Além de dar uma olhadinha no console, que tal dar uma passadinha pra ver os projetos no Github ou os post no site? 👀 \nGithub: https://github.com/santosqa \nPost: https://www.santosqa.com/posts/",
+    "color: blue; font-size: 16px; font-weight: bold; background-color: yellow; padding: 10px; border-radius: 5px;"
+  );
+});
