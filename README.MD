@@ -5,9 +5,9 @@
 
 ## 💻 Projeto
 
-O projeto [Santos Links](https://santosqa.github.io) é um agregador de links inovador, ideal para ser usado como cartão de visitas online. 
-Desenvolvido com foco em acessibilidade e melhores práticas, ele permite que você reúna todos os seus perfis de redes sociais, portfólios e outras informações importantes em um único lugar. Com uma interface amigável e personalizável, o Santos Links facilita a conexão e a interação com seu público, tornando suas informações facilmente acessíveis de qualquer dispositivo. 
-É a solução perfeita para profissionais que desejam apresentar sua presença digital de maneira elegante e eficiente.
+O projeto [Santos Links](https://santosqa.github.io) é um inovador agregador de links, ideal como seu cartão de visitas online. Desenvolvido com ênfase em acessibilidade e nas melhores práticas, ele permite reunir todos os seus perfis de redes sociais, portfólios e outras informações importantes em um único lugar. Com uma interface amigável e personalizável, o Santos Links facilita a conexão e a interação com seu público, tornando suas informações facilmente acessíveis de qualquer dispositivo.
+
+É a solução perfeita para profissionais que desejam apresentar sua presença digital de maneira elegante e eficiente. Além disso, o projeto implementa testes automatizados de acessibilidade e funcionalidade utilizando o Cypress, um poderoso framework de testes de interface do usuário. Estes testes são executados em uma pipeline de CI/CD configurada no GitHub Actions, garantindo que o código seja testado antes da implantação no servidor.
 
 - [Acesse o projeto finalizado, online](https://santosqa.github.io) 
 
