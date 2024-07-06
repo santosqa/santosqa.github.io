@@ -33,7 +33,6 @@ Você pode visualizar o layout do projeto através [DESSE LINK NO FIGMA](https:/
 ![HTML](https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html5&logoColor=white)![CSS](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3&logoColor=white)![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white)![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)![Cypress](https://img.shields.io/badge/Cypress-00BFFF?style=for-the-badge&logo=cypress&logoColor=white)![Cypress-Axe](https://img.shields.io/badge/Cypress--Axe-663399?style=for-the-badge&logo=axe&logoColor=white)![Axe-Core](https://img.shields.io/badge/Axe--Core-4A4A55?style=for-the-badge&logo=axe&logoColor=white)
 
 
-
 ##
 ## ⚙️ Instalação
 
@@ -43,7 +42,6 @@ Para executar este projeto é necessário ter instalado o [Vscode](https://code.
 - [Omni Theme](https://marketplace.visualstudio.com/items?itemName=rocketseat.theme-omni)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-
 
 ##
 ## 🛠️ Configurando o Emmet.variables no VS Code.
