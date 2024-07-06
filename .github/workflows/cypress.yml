@@ -1,49 +1,48 @@
-name: Cypress Tests
+name: Cypress Tests  # Nome do workflow
 
 on:
   pull_request:
+    types: [opened]  # Executa o workflow quando um pull request é aberto
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Define o sistema operacional para a execução
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout code  # Nome da etapa
+        uses: actions/checkout@v2  # Ação para fazer checkout do repositório
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Node.js  # Nome da etapa
+        uses: actions/setup-node@v2  # Ação para configurar o Node.js
         with:
-          node-version: '14'
+          node-version: '14'  # Versão do Node.js a ser configurada
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies  # Nome da etapa
+        run: npm install  # Comando para instalar as dependências do projeto
 
-      - name: Run Cypress tests
-        id: cypress-tests
-        run: npm run cypress:run
-        continue-on-error: true  # Continue on error to capture results
+      - name: Run Cypress tests  # Nome da etapa
+        id: run-tests  # ID da etapa para referenciá-la posteriormente
+        run: npm run cypress:run  # Comando para executar os testes Cypress
 
-      - name: Create Pull Request
-        if: success() && github.event_name == 'pull_request'
-        uses: peter-evans/create-pull-request@v3
+      - name: Create Pull Request  # Nome da etapa
+        uses: peter-evans/create-pull-request@v3  # Ação para criar um pull request
+        if: steps.run-tests.outcome == 'success'  # Condição: criar pull request somente se os testes forem bem-sucedidos
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: master
-          branch: cypress-report-${{ github.event.number }}
-          commit-message: 'Auto: Cypress Tests'
-          delete-branch: true
-          body: 'Cypress Tests'
+          token: ${{ secrets.GITHUB_TOKEN }}  # Token de acesso ao GitHub
+          base: master  # Branch base para o pull request
+          branch: cypress-report-${{ github.event.number }}  # Nome da branch criada para o pull request
+          commit-message: 'Auto: Cypress Tests'  # Mensagem do commit
+          delete-branch: true  # Deletar a branch após o pull request ser mesclado
+          body: 'Cypress Tests'  # Corpo da mensagem do pull request
 
   cypress-report:
-    needs: cypress-run
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    needs: cypress-run  # Define a dependência deste job para 'cypress-run'
+    runs-on: ubuntu-latest  # Define o sistema operacional para a execução
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout code  # Nome da etapa
+        uses: actions/checkout@v2  # Ação para fazer checkout do repositório
 
-      - name: Save Cypress reports
-        uses: actions/upload-artifact@v2
+      - name: Save Cypress reports  # Nome da etapa
+        uses: actions/upload-artifact@v2  # Ação para fazer upload dos artefatos
         with:
-          name: cypress-report
-          path: cypress/screenshots
+          name: cypress-report  # Nome do artefato
+          path: cypress/screenshots  # Caminho dos relatórios do Cypress
