@@ -2,6 +2,7 @@ name: Cypress Tests
 
 on:
   pull_request:
+    types: [opened]
 
 jobs:
   cypress-run:
@@ -20,8 +21,27 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run cypress:run  
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        if: ${{ steps.cypress-run.conclusion == 'success' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: master
+          head: cypress-report-${{ github.event.number }}
+          commit-message: 'Auto: Cypress Tests'
+          delete-branch: true
+          body: 'Cypress Tests'
+
+  cypress-report:
+    needs: cypress-run
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Save Cypress reports
-        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: cypress-report
