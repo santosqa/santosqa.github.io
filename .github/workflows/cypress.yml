@@ -1,0 +1,32 @@
+name: Cypress Tests
+
+on:
+  pull_request:
+    branches:
+      - main  # ajuste conforme necessário
+      - develop  # ajuste conforme necessário
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # ajuste conforme a versão usada no projeto
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npm run cypress:run  # ajuste para o seu script npm para executar os testes do Cypress
+
+      - name: Save Cypress reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-report
+          path: cypress/reports  # ajuste para o caminho onde os relatórios são salvos
