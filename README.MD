@@ -172,8 +172,6 @@ Se o seu projeto ainda não tiver um arquivo `package.json`, você precisará in
       
     });
 
-
-
     ```
 2. **Crie um arquivo de teste funcional** em `cypress/e2e/functional/homepage.cy.js`:
     ```javascript
