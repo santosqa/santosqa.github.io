@@ -2,7 +2,6 @@ name: Cypress Tests
 
 on:
   pull_request:
-    types: [opened]
 
 jobs:
   cypress-run:
@@ -23,11 +22,6 @@ jobs:
         id: cypress-tests
         run: npm run cypress:run
         continue-on-error: true  # Continue on error to capture results
-
-      - name: Send test results by email
-        if: success() && github.event_name == 'pull_request'
-        run: |
-          echo "Cypress tests passed for PR ${GITHUB_SHA}" | mail -s "Cypress Test Results" correioricardo@hotmail.com
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
