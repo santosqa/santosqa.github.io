@@ -4,7 +4,7 @@
   "description": "O projeto Santos links é um agregador de links inovador, ideal para ser usado como cartão de visitas online. Desenvolvido com foco em acessibilidade e melhores práticas, ele permite que você reúna todos os seus perfis de redes sociais, portfólios e outras informações importantes em um único lugar. Com uma interface amigável e personalizável, o Santos Links facilita a conexão e a interação com seu público, tornando suas informações facilmente acessíveis de qualquer dispositivo. É a solução perfeita para profissionais que desejam apresentar sua presença digital de maneira elegante e eficiente.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:run": "cypress run"
   },
   "keywords": [],
   "author": "SantosQA",
