@@ -46,4 +46,3 @@ jobs:
         with:
           name: cypress-report
           path: cypress/screenshots
-
