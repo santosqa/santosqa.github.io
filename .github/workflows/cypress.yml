@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout code  # Nome da etapa
         uses: actions/checkout@v2  # Ação para fazer checkout do repositório
+        with:
+          ref: main  # Certifique-se de que a branch main está sendo usada
 
       - name: Set up Node.js  # Nome da etapa
         uses: actions/setup-node@v2  # Ação para configurar o Node.js
@@ -25,10 +27,10 @@ jobs:
 
       - name: Create Pull Request  # Nome da etapa
         uses: peter-evans/create-pull-request@v3  # Ação para criar um pull request
-        if: steps.run-tests.outcome == 'success'  # Condição: criar pull request somente se os testes forem bem-sucedidos
+        if: steps.run-tests.conclusion == 'success'  # Condição: criar pull request somente se os testes forem bem-sucedidos
         with:
           token: ${{ secrets.GITHUB_TOKEN }}  # Token de acesso ao GitHub
-          base: master  # Branch base para o pull request
+          base: main  # Branch base para o pull request
           branch: cypress-report-${{ github.event.number }}  # Nome da branch criada para o pull request
           commit-message: 'Auto: Cypress Tests'  # Mensagem do commit
           delete-branch: true  # Deletar a branch após o pull request ser mesclado
