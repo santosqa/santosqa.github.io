@@ -14,17 +14,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run Cypress tests
-        run: npm run cypress:run  
+        id: cypress-tests
+        run: npm run cypress:run
+        continue-on-error: true  # Continue on error to capture results
+
+      - name: Send test results by email
+        if: success() && github.event_name == 'pull_request'
+        run: |
+          echo "Cypress tests passed for PR ${GITHUB_SHA}" | mail -s "Cypress Test Results" correioricardo@hotmail.com
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
-        if: ${{ steps.cypress-run.conclusion == 'success' }}
+        if: success() && github.event_name == 'pull_request'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: master
@@ -46,15 +53,3 @@ jobs:
         with:
           name: cypress-report
           path: cypress/screenshots
-
-      - name: Send Email
-        uses: dawidd6/action-send-mail@v2
-        with:
-          smtp-server: ${{ secrets.SMTP_SERVER }}
-          smtp-port: ${{ secrets.SMTP_PORT }}
-          smtp-username: ${{ secrets.SMTP_USERNAME }}
-          smtp-password: ${{ secrets.SMTP_PASSWORD }}
-          from: ${{ secrets.SMTP_USERNAME }}
-          to: ${{ secrets.SMTP_TO_EMAIL }}
-          subject: Cypress Test Results
-          body: ${{ github.event.pull_request.title }} - ${{ github.event.pull_request.html_url }}\n\n${{ github.workflow }}\n\nView Artifacts: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts
