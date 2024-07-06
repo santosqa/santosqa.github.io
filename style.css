@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,15 +19,15 @@
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --botao-border-color: rgba(0, 0, 0, 0.5);
   --botao-color: rgba(0, 0, 0, 0.089);
-  --botao-color-hover: rgba(0, 0, 0, 0.300);
-  --social-link-hover: rgba(0, 0, 0, 0.250);
+  --botao-color-hover: rgba(0, 0, 0, 0.3);
+  --social-link-hover: rgba(0, 0, 0, 0.25);
   --switch-bg: white url(./assets/sun.svg);
 }
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   height: 100vh;
 }
 
@@ -36,12 +36,22 @@ body * {
   color: var(--text-color);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 #container {
   width: 100%;
   max-width: 588px;
-  margin: 46px auto 0px;
+  margin: 46px auto 0;
   padding: 0 18px;
-  
 }
 
 #profile {
@@ -64,26 +74,21 @@ body * {
   position: relative;
   width: 64px;
   margin: 0 auto;
-
 }
 
-#switch button{
+#switch button {
   cursor: pointer;
-
   width: 32px;
   height: 32px;
   background: var(--switch-bg) no-repeat center;
   border: 0;
   border-radius: 50%;
-
   position: absolute;
   top: 50%;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
-
-  animation: slide-dark .6s;
-
+  animation: slide-dark 0.6s;
 }
 
 #switch span {
@@ -102,8 +107,7 @@ body * {
 }
 
 .light #switch button {
-  animation: slide-light .6s forwards;
-  
+  animation: slide-light 0.6s forwards;
 }
 
 /* Links */
@@ -112,7 +116,7 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;  
+  gap: 10px;
   padding: 24px 0;
 }
 
@@ -120,23 +124,17 @@ ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 10px;  
-
+  padding: 16px 10px;
   background: var(--botao-color);
   border: 1px solid var(--botao-border-color);
   border-radius: 8px;
-
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
   text-decoration: none;
   font-weight: 400;
   line-height: 14px;
-
   transition: background 0.5s;
-  
 }
-/* pseudo-selector */
 
 ul li a:hover {
   background: var(--botao-color-hover);
@@ -154,17 +152,14 @@ ul li a img {
 ul li a span {
   display: inline-block;
   margin: 2px;
-
 }
 
-/* Social Links */ 
-
+/* Social Links */
 #social-links {
   display: flex;
   justify-content: center;
   padding: 14px 0;
   font-size: 24px;
-
 }
 
 #social-links a {
@@ -174,13 +169,10 @@ ul li a span {
   border-radius: 50%;
   transition: background 0.5s;
   padding: 10px;
-  border-radius: 50%;
-
 }
 
 #social-links a:hover {
   background: var(--social-link-hover);
-
 }
 
 footer {
@@ -188,7 +180,7 @@ footer {
   padding: 24px 0;
 }
 
-/* Outros estilos existentes */
+/* Modal */
 
 #fallback-share-options {
   display: flex;
@@ -201,24 +193,21 @@ footer {
   color: #9114da;
   text-decoration: none;
   font-size: 32px;
+  transition: color 0.3s; /* Adicionando transição suave para mudanças de cor */
 }
 
 #fallback-share-options a ion-icon {
-  color: inherit; /* Herdar a cor do elemento pai */
+  color: inherit; /* Herda a cor do elemento pai */
 }
 
 #fallback-share-options a:hover,
 #fallback-share-options a:focus {
-  color: #b77cd9;
+  color: #b77cd9; /* Cor de destaque no hover/focus */
 }
 
-#fallback-share-options a:hover ion-icon,
-#fallback-share-options a:focus ion-icon {
-  color: inherit; /* Herdar a cor do elemento pai no hover */
-}
 
 .modal {
-  display: none; /* Oculto por padrão */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -249,6 +238,10 @@ footer {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .close-button:hover,
@@ -274,7 +267,7 @@ footer {
   }
 }
 
-/* animation */
+/* Animation */
 @keyframes slide-light {
   from {
     left: 0;
@@ -293,3 +286,7 @@ footer {
   }
 }
 
+/* Atributos de acessibilidade */
+#main-content[aria-hidden='true'] {
+  display: none; /* Oculta o conteúdo principal quando o modal está aberto */
+}
