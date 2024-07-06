@@ -46,3 +46,15 @@ jobs:
         with:
           name: cypress-report
           path: cypress/screenshots
+
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v2
+        with:
+          smtp-server: ${{ secrets.SMTP_SERVER }}
+          smtp-port: ${{ secrets.SMTP_PORT }}
+          smtp-username: ${{ secrets.SMTP_USERNAME }}
+          smtp-password: ${{ secrets.SMTP_PASSWORD }}
+          from: ${{ secrets.SMTP_USERNAME }}
+          to: ${{ secrets.SMTP_TO_EMAIL }}
+          subject: Cypress Test Results
+          body: ${{ github.event.pull_request.title }} - ${{ github.event.pull_request.html_url }}\n\n${{ github.workflow }}\n\nView Artifacts: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts
