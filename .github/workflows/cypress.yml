@@ -24,12 +24,12 @@ jobs:
         continue-on-error: true  # Continue on error to capture results
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
         if: success() && github.event_name == 'pull_request'
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: master
-          head: cypress-report-${{ github.event.number }}
+          branch: cypress-report-${{ github.event.number }}
           commit-message: 'Auto: Cypress Tests'
           delete-branch: true
           body: 'Cypress Tests'
