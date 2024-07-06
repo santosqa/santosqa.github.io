@@ -1,0 +1,25 @@
+{
+  "name": "santosqa.github.io",
+  "version": "1.0.0",
+  "description": "O projeto Santos links é um agregador de links inovador, ideal para ser usado como cartão de visitas online. Desenvolvido com foco em acessibilidade e melhores práticas, ele permite que você reúna todos os seus perfis de redes sociais, portfólios e outras informações importantes em um único lugar. Com uma interface amigável e personalizável, o Santos Links facilita a conexão e a interação com seu público, tornando suas informações facilmente acessíveis de qualquer dispositivo. É a solução perfeita para profissionais que desejam apresentar sua presença digital de maneira elegante e eficiente.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "SantosQA",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santosqa/santosqa.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/santosqa/santosqa.github.io/issues"
+  },
+  "homepage": "https://github.com/santosqa/santosqa.github.io#readme",
+  "devDependencies": {
+    "axe-core": "^4.9.1",
+    "cypress": "^13.13.0",
+    "cypress-axe": "^1.5.0"
+  }
+}
