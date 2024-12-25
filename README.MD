@@ -1,6 +1,15 @@
 # Santos Links
  
- [![Link Bio](https://img.shields.io/badge/Pagina%20Do%20Projeto-59d959?style=for-the-badge&logo=about.me&logoColor=white)](https://santosqa.github.io)  [![About](https://img.shields.io/badge/About.me-993399?style=for-the-badge&logo=about.me&logoColor=white)](https://about.me/santosqa) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/santosqa) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/santosqa) [![Instagram](https://img.shields.io/badge/instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/santosqa_/) [![Santos QA](https://img.shields.io/badge/SantosQA.COM-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://santosqa.com/)
+> 💡 **Dica**: Use Ctrl+Click (Windows/Linux) ou Cmd+Click (Mac) para abrir os links em uma nova aba.
+
+[![Santos Links](https://img.shields.io/badge/GitHub-Projeto%20Santos%20Links-%23FFD700?style=for-the-badge&logo=github&logoColor=white)](https://santosqa.github.io)
+[![GitHub](https://img.shields.io/badge/GitHub-About.me-%2350fa7b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/santosqa)
+[![LinkedIn](https://img.shields.io/badge/>-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/santosqa)
+[![Instagram](https://img.shields.io/badge/>-instagram-%23ff5555.svg?&style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/santosqa_/)
+[![Santos QA](https://img.shields.io/badge/www-santosqa.com-%23bd93f9.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white)](https://www.santosqa.com)
+[![Apartamento Vista Mar](https://img.shields.io/badge/www-ApartamentoVistaMar.com-%238be9fd.svg?&style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.apartamentovistamar.com/)
+[![Página do projeto](https://img.shields.io/badge/GitHub-Projeto%20Receitas-%23ffb86c?style=for-the-badge&logo=github&logoColor=white)](https://santosqa.github.io/receitas/)
+
 
 
 ## 💻 Projeto
