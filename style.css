@@ -215,6 +215,64 @@ header {
   line-height: 1.5;
 }
 
+/* ─── Certification badges ─────────────────────────────────────────────── */
+.certs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.cert {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  border: 1px solid;
+  cursor: default;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+
+.cert:hover {
+  transform: translateY(-2px);
+}
+
+.cert-aws {
+  color: var(--aws);
+  background: rgba(255, 153, 0, 0.1);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 0 8px rgba(255, 153, 0, 0.08);
+}
+.cert-aws:hover { box-shadow: 0 4px 14px rgba(255, 153, 0, 0.25); }
+
+.cert-istqb {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+.cert-istqb:hover { box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2); }
+
+.cert-dev {
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.08);
+  border-color: rgba(192, 132, 252, 0.35);
+}
+.cert-dev:hover { box-shadow: 0 4px 14px rgba(192, 132, 252, 0.2); }
+
+.cert-scrum {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.35);
+}
+.cert-scrum:hover { box-shadow: 0 4px 14px rgba(52, 211, 153, 0.2); }
+
+/* ─────────────────────────────────────────────────────────────────────────── */
 .profile-intro {
   font-size: 0.82rem;
   color: var(--text-muted);
