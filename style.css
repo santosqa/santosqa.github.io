@@ -215,6 +215,21 @@ header {
   line-height: 1.5;
 }
 
+.profile-intro {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  text-align: center;
+  max-width: var(--max-w);
+  margin: 0 auto 4px;
+  padding: 0 20px 20px;
+}
+
+.profile-intro strong {
+  color: rgba(238, 238, 248, 0.85);
+  font-weight: 600;
+}
+
 /* ============================================================
    Social Nav
    ============================================================ */
