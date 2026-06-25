@@ -1,279 +1,334 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="dark">
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Primary -->
+  <title>Ricardo Santos | QA Engineer · AWS Cloud Practitioner · @santosqa_</title>
+  <meta name="description" content="Links e portfólio de Ricardo Santos (@santosqa_), QA Engineer especializado em automação de testes. Ebook AWS Cloud Practitioner, artigos, blog e projetos." />
+  <meta name="keywords" content="QA Engineer, automação de testes, AWS Cloud Practitioner, santosqa, Ricardo Santos, quality assurance, certificação AWS, Cypress, Playwright, testes de software" />
+  <meta name="author" content="Ricardo Santos" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://santosqa.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://santosqa.github.io/" />
+  <meta property="og:title" content="Ricardo Santos | QA Engineer · @santosqa_" />
+  <meta property="og:description" content="Links e portfólio de Ricardo Santos (@santosqa_), QA Engineer. Ebook AWS Cloud Practitioner, automação de testes e muito mais." />
+  <meta property="og:image" content="https://santosqa.github.io/assets/CoverSantosQA.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="SantosQA" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@santosqa_" />
+  <meta name="twitter:creator" content="@santosqa_" />
+  <meta name="twitter:title" content="Ricardo Santos | QA Engineer · @santosqa_" />
+  <meta name="twitter:description" content="Ebook AWS Cloud Practitioner, automação de testes, artigos e projetos de Ricardo Santos." />
+  <meta name="twitter:image" content="https://santosqa.github.io/assets/CoverSantosQA.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/avatar.png" />
+  <link rel="apple-touch-icon" href="./assets/avatar.png" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Links Santos QA</title>
-  <link rel="icon" type="image/png" href="./assets/avatar.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ricardo Santos",
+    "alternateName": "@santosqa_",
+    "jobTitle": "QA Engineer",
+    "description": "QA Engineer especializado em automação de testes, AWS Cloud Practitioner certificado e criador de conteúdo sobre qualidade de software.",
+    "url": "https://santosqa.github.io",
+    "image": "https://santosqa.github.io/assets/avatar.png",
+    "sameAs": [
+      "https://github.com/santosqa",
+      "https://www.linkedin.com/in/santosqa",
+      "https://www.instagram.com/santosqa_",
+      "https://www.santosqa.com"
+    ],
+    "knowsAbout": ["Quality Assurance", "Automação de Testes", "AWS Cloud Practitioner", "Cypress", "Playwright", "TypeScript"]
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <main role="main">
-    <h1 class="visually-hidden">Links Santos QA</h1>
-    <div id="container">
-      <div id="profile">
-        <img
-          src="./assets/avatar.png"
-          alt="Foto de Ricardo Santos QA, analista de testes incansável na caça aos Bugs! Está usando óculos e sorrindo para os bugs que encontrar com sua barba de testador desleixada, ele veste uma camiseta cinza e está pronto para caçar falhas no universo digital. Tudo isso com um fundo preto dramático nesta foto, claro!"
-        />
-        <p>@santosqa_</p>
-      </div>
 
-      <div
-        id="switch"
-        onclick="toggleMode()"
-        aria-label="Ícone para alternar o tema: lua com estrelas quando o tema é escuro e sol quando é claro"
-      >
-        <button role="button" aria-label="Alternar tema"></button>
-        <span></span>
-      </div>
+  <!-- Skip navigation for screen readers -->
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-      <div id="social-links">
-        <a
-          href="#"
-          id="share-button"
-          aria-label="Opção para compartilhar esta página"
-        >
-          <ion-icon name="share-social"></ion-icon>
-        </a>
+  <!-- Animated background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-        <a
-          href="https://www.santosqa.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Site Santos QA"
-        >
-          <ion-icon name="logo-wordpress"></ion-icon>
-        </a>
-        <a
-          href="https://github.com/santosqa"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <ion-icon name="logo-github"></ion-icon>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/santosqa"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Linkedin"
-        >
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-        <a
-          href="https://www.instagram.com/santosqa_"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-        <a
-          id="whatsapp-share"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Compartilhar via Whatsapp"
-        >
-          <ion-icon name="logo-whatsapp"></ion-icon>
-        </a>
-
-        <a
-          href="https://www.apartamentovistamar.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Site Apartamento Vista mar"
-        >
-          <ion-icon name="globe-outline"></ion-icon>
-        </a>
-      </div>
-
-      <!-- Modal para opções de compartilhamento -->
-      <div id="share-modal" class="modal" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-          <button class="close-button" role="button" aria-label="Fechar modal">Fechar</button>
-          <h2>Selecione o aplicativo para compartilhar</h2>
-          <div id="fallback-share-options">
-            <a
-              href="#"
-              id="linkedin-share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar no Linkedin"
-            >
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-            <a
-              id="whatsapp-share2"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar via Whatsapp"
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon>
-            </a>
-            <a
-              href="#"
-              id="twitter-share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar no X"
-            >
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-            <a
-              href="#"
-              id="facebook-share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar no Facebook"
-            >
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-            <a
-              href="#"
-              id="email-share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar por e-mail"
-            >
-              <ion-icon name="mail"></ion-icon>
-            </a>
-            <a
-              href="#"
-              id="telegram-share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar no Telegram"
-            >
-              <ion-icon name="paper-plane"></ion-icon>
-            </a>
-            <a
-              href="#"
-              id="instagram-share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Compartilhar no Instagram"
-            >
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </div>
+  <!-- Header / Profile -->
+  <header role="banner">
+    <div class="container">
+      <div class="profile reveal">
+        <div class="avatar-wrapper" aria-hidden="true">
+          <div class="avatar-ring"></div>
+          <img
+            src="./assets/avatar.png"
+            alt="Ricardo Santos, QA Engineer sorrindo com óculos e barba, usando camiseta cinza sobre fundo preto"
+            class="avatar-img"
+            fetchpriority="high"
+            width="120"
+            height="120"
+          />
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-name">Ricardo Santos</h1>
+          <p class="profile-handle" aria-label="Arroba santosqa_ nas redes sociais">@santosqa_</p>
+          <p class="profile-bio">QA Engineer &middot; AWS Cloud Practitioner &middot; Caçador de Bugs</p>
         </div>
       </div>
-      
-      <!-- lista de links -->
-      <ul id="links-list">
 
-        <li>
-          <a
-            href="https://www.santosqa.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="acessar e conhecer dicas de cursos, livros, post no mundo de tecnologia do site Site Santos QA"
-          >
-            <img
-              src="./assets/icone-santos-qa.png"
-              alt="Ícone do Site Santos QA"
-            />
-            <span> SantosQA.com </span>
-          </a>
-        </li>
+      <!-- Social links -->
+      <nav class="social-nav reveal" aria-label="Redes sociais de Ricardo Santos">
+        <a href="https://github.com/santosqa" target="_blank" rel="noopener noreferrer" aria-label="Perfil GitHub de Ricardo Santos" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" focusable="false" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/santosqa" target="_blank" rel="noopener noreferrer" aria-label="Perfil LinkedIn de Ricardo Santos" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" focusable="false" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/santosqa_" target="_blank" rel="noopener noreferrer" aria-label="Perfil Instagram de Ricardo Santos" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" focusable="false" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="https://www.santosqa.com" target="_blank" rel="noopener noreferrer" aria-label="Site SantosQA.com de Ricardo Santos" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+        <button class="social-btn" id="share-button" aria-label="Compartilhar esta página" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" focusable="false" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-        <li>
+  <!-- Main content -->
+  <main id="main-content" role="main">
+    <div class="container">
+
+      <!-- =============================================
+           AWS CTA — DESTAQUE PRINCIPAL
+           ============================================= -->
+      <section class="aws-section reveal" aria-labelledby="aws-heading">
+        <div class="aws-card">
+          <div class="aws-glow" aria-hidden="true"></div>
+          <div class="aws-shimmer" aria-hidden="true"></div>
+
+          <div class="aws-badge" aria-label="Destaque em evidência">
+            <span aria-hidden="true">⚡</span> DESTAQUE
+          </div>
+
+          <div class="aws-logo" aria-hidden="true">
+            <svg viewBox="0 0 100 40" width="90" height="36" fill="none">
+              <text x="0" y="32" font-family="Arial, sans-serif" font-weight="900" font-size="34" fill="#FF9900">AWS</text>
+            </svg>
+            <span class="aws-cloud-badge">Cloud Practitioner</span>
+          </div>
+
+          <h2 id="aws-heading" class="aws-title">
+            Conquiste sua<br />
+            <span class="aws-title-highlight">Certificação AWS</span>
+          </h2>
+
+          <p class="aws-description">
+            Ebook completo, direto ao ponto e criado por quem <strong>passou na primeira tentativa</strong>.
+            Conteúdo atualizado, linguagem clara e foco total no exame. 🎯
+          </p>
+
+          <ul class="aws-features" aria-label="Diferenciais do ebook">
+            <li><span aria-hidden="true">✅</span> Conteúdo atualizado</li>
+            <li><span aria-hidden="true">✅</span> Linguagem clara e objetiva</li>
+            <li><span aria-hidden="true">✅</span> Foco total no exame</li>
+          </ul>
+
           <a
-            href="https://www.apartamentovistamar.com/"
+            href="https://ebookawsclf.pages.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Site Apartamento Vista Mar"
-          > <img
-              src="./assets/icone-ap-vista-mar.png"
-              alt="Ícone do Site Apartamento Vista Mar"
-            />
-            <span>ApartamentoVistaMar.com</span>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.santosqa.com/posts/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="explorar e aprender com os artigos do Site Santos QA"
+            class="aws-cta-btn"
+            aria-label="Acessar o Ebook AWS Cloud Practitioner — guia completo para passar na certificação"
           >
-            <img
-              src="./assets/icone-santos-qa.png"
-              alt="Ícone Explore artigos do Site Santos QA"
-            />
-            <span>Explore artigos e dicas</span>
+            <span>QUERO O EBOOK AGORA</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-        </li>
-        
-        <li>
+
           <a
-            href="https://santosqa.github.io/santos-locais-turisticos/"
+            href="https://simuladoawsclf.pages.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Projeto Santos Locais Turísticos"
+            class="aws-sim-btn"
+            aria-label="Acessar simulado gratuito de preparação para AWS Cloud Practitioner — teste seus conhecimentos antes do exame"
           >
-            <img
-              src="./assets/img-praia-grande.png"
-              alt="Projeto Santos Locais Turísticos"
-            />
-            <span>Projeto Santos Locais Turísticos</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <span>Simulado Gratuito — Teste seus conhecimentos!</span>
           </a>
-        </li>
-        <li>
-          <a
-            href="https://santosqa.github.io/receitas/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Projeto Receitas Nerds"
-          >
-            <img
-              src="./assets/img-baiao-de-dois.png"
-              alt="Projeto Receitas Nerds"
-            />
-            <span>Projeto Receitas Nerds</span>
-          </a>
-        </li>
-      </ul>
+        </div>
+      </section>
+
+      <!-- Links / Portfolio -->
+      <nav aria-label="Links e projetos de Ricardo Santos">
+        <ul class="links-list" role="list">
+
+          <li class="link-item reveal">
+            <a
+              href="https://www.santosqa.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar SantosQA.com — blog com dicas de QA, cursos e livros de tecnologia"
+              class="link-card"
+            >
+              <div class="link-icon" aria-hidden="true">
+                <img src="./assets/icone-santos-qa.png" alt="" width="28" height="28" loading="lazy" />
+              </div>
+              <span class="link-label">SantosQA.com</span>
+              <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </li>
+
+          <li class="link-item reveal">
+            <a
+              href="https://www.santosqa.com/posts/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Explorar artigos e dicas de tecnologia, QA e automação no blog SantosQA"
+              class="link-card"
+            >
+              <div class="link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <span class="link-label">Artigos e Dicas de Tech</span>
+              <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </li>
+
+          <li class="link-item reveal">
+            <a
+              href="https://santosqa.github.io/santos-locais-turisticos/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Explorar o Projeto Santos Locais Turísticos — guia de pontos turísticos"
+              class="link-card"
+            >
+              <div class="link-icon" aria-hidden="true">
+                <img src="./assets/img-praia-grande.png" alt="" width="28" height="28" loading="lazy" />
+              </div>
+              <span class="link-label">Projeto Santos Locais Turísticos</span>
+              <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </li>
+
+          <li class="link-item reveal">
+            <a
+              href="https://santosqa.github.io/receitas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Explorar o Projeto Receitas Nerds — receitas para quem programa"
+              class="link-card"
+            >
+              <div class="link-icon" aria-hidden="true">
+                <img src="./assets/img-baiao-de-dois.png" alt="" width="28" height="28" loading="lazy" />
+              </div>
+              <span class="link-label">Projeto Receitas Nerds</span>
+              <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </li>
+
+          <li class="link-item reveal">
+            <a
+              href="https://www.apartamentovistamar.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar o Site Apartamento Vista Mar"
+              class="link-card"
+            >
+              <div class="link-icon" aria-hidden="true">
+                <img src="./assets/icone-ap-vista-mar.png" alt="" width="28" height="28" loading="lazy" />
+              </div>
+              <span class="link-label">ApartamentoVistaMar.com</span>
+              <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
     </div>
   </main>
 
-  <footer>
-    <p id="space">
-      <br />
-      Feito com <img src="./assets/heart.svg" alt="imagem de coração" /> por
-      <a href="https://santosqa.com" target="_blank" rel="noopener noreferrer" aria-label="site Santos QA">
-        @santosqa_
-      </a>
-    </p>
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p class="footer-text">
+        Feito com
+        <svg viewBox="0 0 24 24" fill="#e25555" width="15" height="15" role="img" aria-label="amor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        por
+        <a href="https://santosqa.com" target="_blank" rel="noopener noreferrer" aria-label="Site de Ricardo Santos, santosqa_">@santosqa_</a>
+      </p>
+    </div>
   </footer>
 
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
-  <script src="script.js"></script>
+  <!-- Share Modal -->
+  <div
+    id="share-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"></div>
+    <div class="modal-panel">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Fechar janela de compartilhamento">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="18" height="18" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h2 id="modal-title">Compartilhar</h2>
+      <p class="modal-subtitle">Escolha como deseja compartilhar esta página</p>
+      <div class="modal-grid" role="list">
+        <a href="#" id="whatsapp-share" target="_blank" rel="noopener noreferrer" class="share-item" aria-label="Compartilhar via WhatsApp" role="listitem">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="#" id="linkedin-share" target="_blank" rel="noopener noreferrer" class="share-item" aria-label="Compartilhar no LinkedIn" role="listitem">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="#" id="twitter-share" target="_blank" rel="noopener noreferrer" class="share-item" aria-label="Compartilhar no X (Twitter)" role="listitem">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X</span>
+        </a>
+        <a href="#" id="telegram-share" target="_blank" rel="noopener noreferrer" class="share-item" aria-label="Compartilhar no Telegram" role="listitem">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <span>Telegram</span>
+        </a>
+        <a href="#" id="email-share" target="_blank" rel="noopener noreferrer" class="share-item" aria-label="Compartilhar por e-mail" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>E-mail</span>
+        </a>
+        <a href="#" id="facebook-share" target="_blank" rel="noopener noreferrer" class="share-item" aria-label="Compartilhar no Facebook" role="listitem">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log(
-        " 🚀 🚀 🚀 🚀  🚀 🚀 🚀 🚀  🚀 🚀 🚀 🚀  🚀 🚀 🚀 🚀 "
-      );
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

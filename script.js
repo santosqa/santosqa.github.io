@@ -1,109 +1,175 @@
 'use strict';
 
-function toggleMode() {
-  const html = document.documentElement;
-  html.classList.toggle('light');
-}
+/* ============================================================
+   Particles — canvas-based, lightweight
+   ============================================================ */
+(function initParticles() {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-document.addEventListener('DOMContentLoaded', function () {
-  const whatsappShareButton = document.getElementById('whatsapp-share');
-  whatsappShareButton.addEventListener('click', function(event) {
-    handleWhatsappShareClick(event);
+  const ctx = canvas.getContext('2d');
+  let W, H, particles;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function mkParticle() {
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.5 + 0.4,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: -(Math.random() * 0.4 + 0.1),
+      alpha: Math.random() * 0.4 + 0.05,
+    };
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({ length: 55 }, mkParticle);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200, 190, 255, ${p.alpha})`;
+      ctx.fill();
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.y < -5 || p.x < -5 || p.x > W + 5) {
+        p.x = Math.random() * W;
+        p.y = H + 5;
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  init();
+  draw();
+})();
+
+/* ============================================================
+   Scroll Reveal — IntersectionObserver with stagger
+   ============================================================ */
+(function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return;
+      const delay = parseInt(entry.target.dataset.delay || '0', 10);
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+  els.forEach((el, i) => {
+    el.dataset.delay = String(i * 80);
+    observer.observe(el);
   });
+})();
 
-  document.getElementById('share-button').addEventListener('click', function(event) {
-    handleShareButtonClick(event);
-  });
+/* ============================================================
+   Link hover micro-interaction — subtle tilt on desktop
+   ============================================================ */
+(function initTilt() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  document.querySelector('.close-button').addEventListener('click', function(event) {
-    closeShareModal();
-  });
-
-  window.addEventListener('click', function(event) {
-    handleWindowClick(event);
-  });
-
-  const shareLinks = document.querySelectorAll('#fallback-share-options a');
-  shareLinks.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-      closeShareModal();
+  document.querySelectorAll('.link-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateX(5px) rotateX(${-y * 3}deg) rotateY(${x * 3}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
     });
   });
-});
+})();
 
-function handleWhatsappShareClick(event) {
-  event.preventDefault();
-  const currentUrl = encodeURIComponent(window.location.href);
-  const shareText = encodeURIComponent('Captei uma URL de potencial épico no vasto éter digital e imediatamente associei à sua persona. 🌐 Nela há hyperlinks que, segundo os padrões do universo cibernético, podem ser muito úteis. Recomendo uma inspeção, pois a jornada promete recompensas! 🚀');
-  const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
-  window.open(whatsappUrl, '_blank');
-}
-
-function handleShareButtonClick(event) {
-  event.preventDefault();
-
-  const shareData = {
-    title: document.title,
-    text: 'Captei uma URL de potencial épico no vasto éter digital e imediatamente associei à sua persona. 🌐 Nela há hyperlinks que, segundo os padrões do universo cibernético, podem ser muito úteis. Recomendo uma inspeção, pois a jornada promete recompensas! 🚀',
-    url: window.location.href,
-  };
-
-  if (navigator.share) {
-    shareViaWebShareApi(shareData);
-  } else {
-    shareViaFallbackMethods(shareData);
-  }
-}
-
-function shareViaWebShareApi(shareData) {
-  navigator
-    .share(shareData)
-    .then(handleShareSuccess)
-    .catch(handleShareError);
-}
-
-function shareViaFallbackMethods(shareData) {
-  const shareUrl = encodeURIComponent(shareData.url);
-  const shareTitle = encodeURIComponent(shareData.title);
-  const shareText = encodeURIComponent(shareData.text);
-
-  document.getElementById('linkedin-share').href = `https://www.linkedin.com/sharing/share-offsite/?text=${shareText}%0A${shareUrl}%0A`;
-  document.getElementById('whatsapp-share2').href = `https://api.whatsapp.com/send?text=${shareText}%0A${shareUrl}%0A`;
-  document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${shareText}%0A&url=${shareUrl}%0A`;
-  document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
-  document.getElementById('email-share').href = `mailto:?subject=${shareTitle}&body=${shareText}%0A${shareUrl}%0A`;
-  document.getElementById('telegram-share').href = `https://t.me/share/url?url=${shareUrl}%0A&text=${shareText}`;
-  
-  const modal = document.getElementById('share-modal');
-  modal.style.display = 'block';
-  modal.setAttribute('aria-hidden', 'false');
-  document.getElementById('main-content').setAttribute('aria-hidden', 'true');
-}
-
-function handleShareSuccess() {
-  console.log('Página compartilhada com sucesso!');
-}
-
-function handleShareError(error) {
-  console.error('Erro ao compartilhar', error);
-}
-
-function closeShareModal() {
-  const modal = document.getElementById('share-modal');
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden', 'true');
-  document.getElementById('main-content').setAttribute('aria-hidden', 'false');
-}
-
-function handleWindowClick(event) {
-  if (event.target === document.getElementById('share-modal')) {
-    closeShareModal();
-  }
-}
-
+/* ============================================================
+   Share Modal
+   ============================================================ */
 document.addEventListener('DOMContentLoaded', function () {
+  const shareBtn  = document.getElementById('share-button');
+  const modal     = document.getElementById('share-modal');
+  const closeBtn  = document.getElementById('modal-close');
+  const backdrop  = document.getElementById('modal-backdrop');
+  const pageUrl   = window.location.href;
+  const shareMsg  = 'Captei uma URL de potencial épico no vasto éter digital! 🌐 Há hyperlinks que, segundo os padrões do universo cibernético, podem ser muito úteis. Recomendo uma inspeção! 🚀';
+  const enc       = encodeURIComponent;
+
+  function populateLinks() {
+    const u = enc(pageUrl);
+    const t = enc(shareMsg);
+    const title = enc(document.title);
+
+    document.getElementById('whatsapp-share').href  = `https://api.whatsapp.com/send?text=${t}%20${u}`;
+    document.getElementById('linkedin-share').href  = `https://www.linkedin.com/sharing/share-offsite/?url=${u}`;
+    document.getElementById('twitter-share').href   = `https://twitter.com/intent/tweet?text=${t}&url=${u}`;
+    document.getElementById('telegram-share').href  = `https://t.me/share/url?url=${u}&text=${t}`;
+    document.getElementById('email-share').href     = `mailto:?subject=${title}&body=${t}%0A${u}`;
+    document.getElementById('facebook-share').href  = `https://www.facebook.com/sharer/sharer.php?u=${u}`;
+  }
+
+  function openModal() {
+    populateLinks();
+    modal.setAttribute('aria-hidden', 'false');
+    closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    shareBtn.focus();
+    document.body.style.overflow = '';
+  }
+
+  shareBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (navigator.share) {
+      navigator.share({ title: document.title, text: shareMsg, url: pageUrl })
+        .catch(() => openModal());
+    } else {
+      openModal();
+    }
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+    }
+  });
+
+  /* Focus trap inside modal */
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    const focusable = modal.querySelectorAll('a[href], button');
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
+      e.preventDefault();
+      (e.shiftKey ? last : first).focus();
+    }
+  });
+
+  /* Console easter egg */
   console.log(
-    "%c👀 Oi! Além de dar uma olhadinha no console, que tal dar uma passadinha pra ver os projetos no Github ou os post no site? 👀 \nGithub: https://github.com/santosqa \nPost: https://www.santosqa.com/posts/",
-    "color: blue; font-size: 16px; font-weight: bold; background-color: yellow; padding: 10px; border-radius: 5px;"
+    '%c👀 Oi, dev curioso! Que tal dar uma olhada nos projetos?\nGitHub → https://github.com/santosqa\nBlog   → https://www.santosqa.com/posts/',
+    'color:#7c6be8;font-size:13px;font-weight:bold;background:#07061a;padding:10px 14px;border-radius:8px;'
   );
 });
