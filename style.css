@@ -666,6 +666,33 @@ header {
   object-fit: cover;
 }
 
+/* Per-link accent tints — mirrors the store buttons' colored icon treatment */
+.link-icon-used-quality {
+  background: rgba(34, 197, 94, 0.14);
+  color: #22c55e;
+}
+
+.link-icon-santosqa {
+  background: rgba(240, 180, 41, 0.14);
+}
+
+.link-icon-blog {
+  background: rgba(59, 130, 246, 0.14);
+  color: #3b82f6;
+}
+
+.link-icon-turismo {
+  background: rgba(34, 211, 238, 0.14);
+}
+
+.link-icon-receitas {
+  background: rgba(239, 68, 68, 0.14);
+}
+
+.link-icon-vistamar {
+  background: rgba(168, 85, 247, 0.14);
+}
+
 .link-label {
   flex: 1;
   font-size: 0.92rem;
@@ -687,6 +714,68 @@ header {
 .link-card:focus-visible .link-arrow {
   transform: translateX(4px);
   color: var(--accent);
+}
+
+/* Store links (Shopee / Mercado Livre) — side by side row */
+.store-links-row {
+  display: flex;
+  gap: 10px;
+}
+
+.store-link-card {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition:
+    background var(--t) var(--ease),
+    border-color var(--t) var(--ease),
+    transform var(--t) var(--ease),
+    box-shadow var(--t) var(--ease);
+}
+
+.store-link-card:hover,
+.store-link-card:focus-visible {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.store-link-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.store-link-card .link-label {
+  font-size: 0.82rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.store-icon-shopee {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: rgba(238, 77, 45, 0.14);
+  color: #ee4d2d;
+}
+
+.store-icon-ml {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: rgba(255, 230, 0, 0.14);
+  color: #ffe600;
 }
 
 /* ============================================================

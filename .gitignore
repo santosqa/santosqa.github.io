@@ -13,3 +13,4 @@ out/
 # IDEs
 .idea/
 .vscode/
+.claude/
